@@ -1,0 +1,60 @@
+CustomerId,CustomerName,Company,City,State,Country,EmployeeId
+1,Luís Gonçalves,Embraer - Empresa Brasileira de Aeronáutica S.A.,São José dos Campos,SP,Brazil,3
+2,Leonie Köhler,,Stuttgart,,Germany,5
+3,François Tremblay,,Montréal,QC,Canada,3
+4,Bjørn Hansen,,Oslo,,Norway,4
+5,František Wichterlová,JetBrains s.r.o.,Prague,,Czech Republic,4
+6,Helena Holý,,Prague,,Czech Republic,5
+7,Astrid Gruber,,Vienne,,Austria,5
+8,Daan Peeters,,Brussels,,Belgium,4
+9,Kara Nielsen,,Copenhagen,,Denmark,4
+10,Eduardo Martins,Woodstock Discos,São Paulo,SP,Brazil,4
+11,Alexandre Rocha,Banco do Brasil S.A.,São Paulo,SP,Brazil,5
+12,Roberto Almeida,Riotur,Rio de Janeiro,RJ,Brazil,3
+13,Fernanda Ramos,,Brasília,DF,Brazil,4
+14,Mark Philips,Telus,Edmonton,AB,Canada,5
+15,Jennifer Peterson,Rogers Canada,Vancouver,BC,Canada,3
+16,Frank Harris,Google Inc.,Mountain View,CA,USA,4
+17,Jack Smith,Microsoft Corporation,Redmond,WA,USA,5
+18,Michelle Brooks,,New York,NY,USA,3
+19,Tim Goyer,Apple Inc.,Cupertino,CA,USA,3
+20,Dan Miller,,Mountain View,CA,USA,4
+21,Kathy Chase,,Reno,NV,USA,5
+22,Heather Leacock,,Orlando,FL,USA,4
+23,John Gordon,,Boston,MA,USA,4
+24,Frank Ralston,,Chicago,IL,USA,3
+25,Victor Stevens,,Madison,WI,USA,5
+26,Richard Cunningham,,Fort Worth,TX,USA,4
+27,Patrick Gray,,Tucson,AZ,USA,4
+28,Julia Barnett,,Salt Lake City,UT,USA,5
+29,Robert Brown,,Toronto,ON,Canada,3
+30,Edward Francis,,Ottawa,ON,Canada,3
+31,Martha Silk,,Halifax,NS,Canada,5
+32,Aaron Mitchell,,Winnipeg,MB,Canada,4
+33,Ellie Sullivan,,Yellowknife,NT,Canada,3
+34,João Fernandes,,Lisbon,,Portugal,4
+35,Madalena Sampaio,,Porto,,Portugal,4
+36,Hannah Schneider,,Berlin,,Germany,5
+37,Fynn Zimmermann,,Frankfurt,,Germany,3
+38,Niklas Schröder,,Berlin,,Germany,3
+39,Camille Bernard,,Paris,,France,4
+40,Dominique Lefebvre,,Paris,,France,4
+41,Marc Dubois,,Lyon,,France,5
+42,Wyatt Girard,,Bordeaux,,France,3
+43,Isabelle Mercier,,Dijon,,France,3
+44,Terhi Hämäläinen,,Helsinki,,Finland,3
+45,Ladislav Kovács,,Budapest,,Hungary,3
+46,Hugh O'Reilly,,Dublin,Dublin,Ireland,3
+47,Lucas Mancini,,Rome,RM,Italy,5
+48,Johannes Van der Berg,,Amsterdam,VV,Netherlands,5
+49,Stanisław Wójcik,,Warsaw,,Poland,4
+50,Enrique Muñoz,,Madrid,,Spain,5
+51,Joakim Johansson,,Stockholm,,Sweden,5
+52,Emma Jones,,London,,United Kingdom,3
+53,Phil Hughes,,London,,United Kingdom,3
+54,Steve Murray,,Edinburgh ,,United Kingdom,5
+55,Mark Taylor,,Sidney,NSW,Australia,4
+56,Diego Gutiérrez,,Buenos Aires,,Argentina,4
+57,Luis Rojas,,Santiago,,Chile,5
+58,Manoj Pareek,,Delhi,,India,3
+59,Puja Srivastava,,Bangalore,,India,3
