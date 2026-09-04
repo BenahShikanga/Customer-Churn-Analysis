@@ -3,10 +3,11 @@
 A Power BI dashboard analyzing sales performance — revenue trends, top customers, product/genre performance, and
 sales-rep performance — built on a clean star-schema data model with custom DAX measures.
 
-> **Status:** the data, data model, DAX measures, theme, and full build spec are ready. The `.pbix` itself is
-> built in Power BI Desktop by following [`docs/build_guide.md`](docs/build_guide.md) (Power BI Desktop is a
-> Windows GUI application, so the actual report file is built by hand rather than generated as code) — once
-> built, drop it in this folder alongside screenshots in `images/`.
+> **Status:** the data, data model, DAX measures, theme, and full build spec are ready. The report itself is built
+> by hand by following [`docs/build_guide.md`](docs/build_guide.md), which covers two paths: the free, browser-based
+> **Power BI Service** (works on Mac/Windows/Linux, no install) or **Power BI Desktop** (Windows only, e.g. via a
+> Windows VM) — once built, drop the `.pbix` (Desktop path) or a shareable link (Service path) in this folder
+> alongside screenshots in `images/`.
 
 ## Why this dataset
 
@@ -61,16 +62,19 @@ Full DAX in [`dax/measures.dax`](dax/measures.dax).
 
 ## How to build it
 
-See [`docs/build_guide.md`](docs/build_guide.md) for the complete walkthrough. Short version:
+See [`docs/build_guide.md`](docs/build_guide.md) for the complete walkthrough, including a **Mac-friendly path**
+using the free Power BI Service in your browser (no Windows/install required). Short version:
 
-1. Install [Power BI Desktop](https://www.microsoft.com/en-us/power-platform/products/power-bi/desktop) (free, Windows).
-2. Import the 5 CSVs from `data/`.
-3. Build the relationships described in `docs/data_model.md`; mark `DimDate` as a date table.
-4. Apply `theme/portfolio_theme.json`.
-5. Add the measures from `dax/measures.dax`.
-6. Build the 4 pages per `docs/build_guide.md`.
-7. Save the `.pbix` here and drop screenshots into `images/`.
+1. **On a Mac**: combine the 5 CSVs into one Excel workbook, upload to OneDrive, and import it at
+   [app.powerbi.com](https://app.powerbi.com). **On Windows** (or a Windows VM): install
+   [Power BI Desktop](https://www.microsoft.com/en-us/power-platform/products/power-bi/desktop) (free) and import
+   the 5 CSVs from `data/` directly.
+2. Build the relationships described in `docs/data_model.md`; mark `DimDate` as a date table.
+3. Apply `theme/portfolio_theme.json` (Desktop; try the same in Service if available).
+4. Add the measures from `dax/measures.dax`.
+5. Build the 4 pages per `docs/build_guide.md`.
+6. Drop the `.pbix` (Desktop) or shareable link (Service) here, plus screenshots into `images/`.
 
 ## Tools
 
-Power BI Desktop · DAX · Power Query · (data prepared with Python/Pandas/SQLite)
+Power BI (Desktop or Service) · DAX · Power Query · (data prepared with Python/Pandas/SQLite)

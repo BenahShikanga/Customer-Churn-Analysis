@@ -1,20 +1,50 @@
 # Build Guide — Sales Performance Dashboard
 
-Follow this guide top to bottom in **Power BI Desktop** (free download:
-[powerbi.microsoft.com/desktop](https://www.microsoft.com/en-us/power-platform/products/power-bi/desktop), Windows only).
-Total time: roughly 45–60 minutes for a first pass.
+Power BI Desktop is Windows-only. Pick the path that matches your machine:
 
-## 0. Install & open
+- **Path A — Power BI Service (browser)**: works natively on Mac, free, no install. Use this unless you already
+  have Windows available. Menu labels in the web editor shift over time, so this section gives you the workflow
+  and points to Microsoft's live docs for exact click-paths — treat those docs as the source of truth if a button
+  has moved.
+- **Path B — Power BI Desktop (Windows or a Windows VM on Mac)**: the traditional, more precise authoring
+  experience. Use this if you set up a Windows VM (Parallels/VMware + a free Windows dev VM) or have access to a
+  Windows machine.
 
-1. Install Power BI Desktop from the Microsoft Store or the link above.
+Both paths build the same data model, measures, and report — sections 2 onward are shared.
+
+## Path A — Power BI Service (browser, Mac-friendly)
+
+1. **Combine the 5 CSVs into one Excel workbook** — the browser import flow works far more smoothly with one
+   `.xlsx` file than five separate CSVs. On a Mac, open Excel (or Numbers/Google Sheets, then export to `.xlsx`)
+   and create one workbook with 5 sheets — `FactSales`, `DimCustomer`, `DimEmployee`, `DimProduct`, `DimDate` —
+   pasting in each CSV's data, and format each sheet's data as an **Excel Table** (select the data → Insert →
+   Table) so Power BI recognizes clean column headers and types.
+2. Upload that workbook to **OneDrive**.
+3. Sign in at [app.powerbi.com](https://app.powerbi.com) (sign up free if needed — if it insists on a work/school
+   email and you only have a personal one, look for the Microsoft Fabric free-trial signup flow, which accepts a
+   broader range of accounts).
+4. In a workspace, choose **Get data → OneDrive** (or **New → Upload a file**), select the workbook, and import it
+   as a dataset/semantic model (not just "view in Excel").
+5. Open the resulting **semantic model** in the browser. Use its **Data**/modeling view to build the relationships
+   and measures described in sections 2–3 below — the web modeling experience mirrors Desktop's Model view and
+   "New measure" flow closely enough that the same steps apply, just inside the browser tab instead of an app
+   window.
+6. From the semantic model, choose **Create report** to build the pages visually in the browser (section 4).
+7. Current, authoritative click-by-click steps: [Microsoft Learn — Create a report in the Power BI service](https://learn.microsoft.com/power-bi/create-reports/service-report-create-new).
+
+## Path B — Power BI Desktop
+
+1. Install Power BI Desktop from the Microsoft Store, or set up a Windows VM first (Parallels Desktop / VMware
+   Fusion + a free [Windows 11 dev VM](https://aka.ms/windowsdevvm) from Microsoft), then install it there.
 2. Open Power BI Desktop → **Get Data** → **Text/CSV** → import all 5 files from [`../data/`](../data/):
    `fact_sales.csv`, `dim_customer.csv`, `dim_employee.csv`, `dim_product.csv`, `dim_date.csv`.
 3. Click **Transform Data** and check each table's column types (Power BI usually infers correctly, but confirm
    `InvoiceDate`/`Date` are typed as **Date**, not text, and IDs are **Whole Number**). Click **Close & Apply**.
 
-## 1. Build the data model (star schema)
+## 2. Build the data model (star schema)
 
-Go to the **Model** view (left sidebar) and create these relationships by dragging field-to-field:
+Go to the **Model** view (Desktop) or the semantic model's relationship view (Service) and create these
+relationships by dragging field-to-field:
 
 | From | To | Cardinality |
 |---|---|---|
@@ -26,22 +56,22 @@ Go to the **Model** view (left sidebar) and create these relationships by draggi
 This is a standard **star schema**: `FactSales` in the middle, dimension tables around it — the layout Power BI
 (and every BI tool) is optimized for. See [`data_model.md`](data_model.md) for the diagram.
 
-**Mark `DimDate` as a date table**: select `DimDate` → Table tools ribbon → **Mark as Date Table** → pick the
-`Date` column. This is required for the time-intelligence DAX measures (`SAMEPERIODLASTYEAR`, etc.) to work.
+**Mark `DimDate` as a date table**: select `DimDate` → **Mark as Date Table** → pick the `Date` column. This is
+required for the time-intelligence DAX measures (`SAMEPERIODLASTYEAR`, etc.) to work.
 
-## 2. Load the theme
+## 3. Load the theme (Desktop; try the same in Service if the option is present)
 
 **View** tab → **Themes** → **Browse for themes** → select [`../theme/portfolio_theme.json`](../theme/portfolio_theme.json).
-This applies a consistent, colorblind-checked color palette matching the other projects in this portfolio.
+This applies a consistent, colorblind-checked color palette matching the other projects in this portfolio. If the
+web report editor doesn't expose a theme-import option for your account tier, skip this — it's cosmetic only.
 
-## 3. Create the DAX measures
+## 4. Create the DAX measures
 
-Go to **Report** view → select the `FactSales` table in the Fields pane → **Modeling** tab → **New Measure**.
-Paste in each measure from [`../dax/measures.dax`](../dax/measures.dax) one at a time (Power BI only lets you
-create one measure per click of "New Measure", so copy each block separately). Start with the six **Core KPIs**
-— the rest can be added as you build the pages that need them.
+Select the `FactSales` table in the Fields pane → **New Measure**. Paste in each measure from
+[`../dax/measures.dax`](../dax/measures.dax) one at a time (only one measure per click of "New Measure", so copy
+each block separately). Start with the six **Core KPIs** — the rest can be added as you build the pages that need them.
 
-## 4. Build the report pages
+## 5. Build the report pages
 
 Create four report pages (right-click the page tab at the bottom → Rename):
 
@@ -79,7 +109,7 @@ Create four report pages (right-click the page tab at the bottom → Rename):
 - **Clustered column chart**: `Total Revenue` by `DimEmployee[EmployeeName]`.
 - **Card**: highest-performing rep (use a table sorted descending + "Show value as" or a top-N filter).
 
-## 5. Formatting pass (do this last, on every page)
+## 6. Formatting pass (do this last, on every page)
 
 - Every visual gets a clear, business-readable **title** (not the default field name).
 - Add **data labels** on bar/column charts showing the value (Format visual → Data labels → On).
@@ -88,15 +118,17 @@ Create four report pages (right-click the page tab at the bottom → Rename):
 - Use the same **date slicer** placement and size on every page for a consistent feel.
 - Add a **text box** header on Page 1 with the dashboard title and your name.
 
-## 6. Publish / export
+## 7. Publish / export
 
-- **File → Export → Export to PDF** for a portable snapshot to include as a screenshot in the README.
-- If you have a Power BI Service (Fabric) account, **Publish** the report there and grab a shareable link —
-  optional, but a live link is a strong addition to a portfolio.
-- Save the `.pbix` file and commit it to this project folder (`power-bi-sales-dashboard/SalesPerformanceDashboard.pbix`).
+- **Path A (Service)**: the report already lives in your workspace — just grab its **shareable link**
+  (Share button), or use **File → Export to PDF** for a snapshot.
+- **Path B (Desktop)**: **File → Export → Export to PDF** for a snapshot; **Publish** to the Power BI Service for
+  a shareable link; save the `.pbix` file and commit it to this project folder
+  (`power-bi-sales-dashboard/SalesPerformanceDashboard.pbix`).
 
-## 7. Update the README
+## 8. Update the README
 
 Once built, take a screenshot of each page and drop them into [`../images/`](../images/), then reference them in
 [`../README.md`](../README.md) (placeholders are already there) so the finished dashboard is visible to anyone
-browsing the repo without opening Power BI.
+browsing the repo without opening Power BI. If you published to the Service, add that shareable link to the
+README too.
