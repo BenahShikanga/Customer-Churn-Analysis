@@ -2,6 +2,9 @@
 
 A collection of data analysis projects.
 
+**Live CV / portfolio site:** https://benahshikanga.github.io/My-Portfolio/
+(once [GitHub Pages](https://docs.github.com/en/pages) is enabled for this repo — see `docs/README.md`)
+
 ## Projects
 
 - [Customer Churn Analysis](customer-churn-analysis/) — Exploratory data analysis of telecom customer churn using
