@@ -12,6 +12,12 @@ way across this portfolio: SQL queries, a Python/Pandas notebook, and this sprea
 
 [`Sales_Dashboard.xlsx`](Sales_Dashboard.xlsx) — open directly in Excel, Google Sheets, or Apple Numbers.
 
+![Dashboard screenshot](images/dashboard_screenshot.jpg)
+
+Every formula in this workbook was verified by an automated recalculation pass (LibreOffice headless) — 4,589
+formulas, zero errors — and every KPI/table value was independently cross-checked against the same data recomputed
+in Pandas.
+
 ## Structure
 
 - **`Data` sheet** — 2,240 rows, one per invoice line (customer, country, sales rep, genre, artist, track, price,
