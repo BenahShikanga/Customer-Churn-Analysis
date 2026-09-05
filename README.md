@@ -1,5 +1,7 @@
 # Data Analyst Portfolio
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live%20Site-1f6f54?style=flat-square)](https://benahshikanga.github.io/My-Portfolio/)
+
 A collection of data analysis projects.
 
 **Live CV / portfolio site:** https://benahshikanga.github.io/My-Portfolio/
