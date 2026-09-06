@@ -236,7 +236,7 @@
   .tag:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
 
   /* ---------- Projects ---------- */
-  .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+  .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .project-card {
     position: relative;
     background: var(--surface);
@@ -311,6 +311,10 @@
   }
   .to-top.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
+  @media (max-width: 640px) {
+    .project-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 600px) {
     .hero { padding: 56px 0 32px; }
     section { padding: 32px 0; }
@@ -365,7 +369,7 @@
       <div class="stat"><span class="num">7,000+</span><span class="cap">customers analyzed for churn</span></div>
       <div class="stat"><span class="num">10</span><span class="cap">business questions answered in SQL</span></div>
       <div class="stat"><span class="num">4,589</span><span class="cap">spreadsheet formulas, 0 errors</span></div>
-      <div class="stat"><span class="num">3</span><span class="cap">independent portfolio projects</span></div>
+      <div class="stat"><span class="num">4</span><span class="cap">independent portfolio projects</span></div>
     </div>
   </section>
 
@@ -385,7 +389,7 @@
         <div class="tag-row">
           <span class="tag">SQL</span><span class="tag">Python (Pandas)</span>
           <span class="tag">Matplotlib / Seaborn</span><span class="tag">Excel</span>
-          <span class="tag">Power BI</span>
+          <span class="tag">Power BI</span><span class="tag">scikit-learn</span>
         </div>
       </div>
       <div class="skill-group">
@@ -412,6 +416,12 @@
       <span class="section-note">github.com/BenahShikanga/My-Portfolio</span>
     </div>
     <div class="project-grid">
+      <div class="project-card">
+        <h3>NAV Job Seekers — Trend &amp; Forecasting</h3>
+        <p>Modeled and forecast NAV's own job-seeker data — trend analysis, a regression forecast, and clustering.</p>
+        <div class="project-tags"><span>scikit-learn</span><span>Forecasting</span><span>Clustering</span></div>
+        <a class="project-link" href="https://github.com/BenahShikanga/My-Portfolio/tree/main/nav-jobseekers-forecast" target="_blank" rel="noopener">View project</a>
+      </div>
       <div class="project-card">
         <h3>Customer Churn Analysis</h3>
         <p>Found out why customers leave, using Python.</p>
