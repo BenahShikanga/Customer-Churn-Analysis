@@ -8,6 +8,9 @@ A collection of data analysis projects.
 
 ## Projects
 
+- [NAV Job Seekers — Trend Analysis & Forecasting](nav-jobseekers-forecast/) — Real NAV open data: trend/CAGR
+  analysis, a supervised forecasting model with train/test evaluation, and KMeans clustering of occupations by
+  labour-market trend shape.
 - [Customer Churn Analysis](customer-churn-analysis/) — Exploratory data analysis of telecom customer churn using
   Python, Pandas, and data visualization to identify at-risk customer segments and drive retention strategy.
 - [SQL Sales & Business Analytics](sql-sales-analysis/) — Answering business questions (revenue, top customers,
