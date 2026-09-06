@@ -16,53 +16,53 @@
 
   :root {
     color-scheme: light;
-    --bg: #faf9f4;
-    --surface: #f1efe4;
-    --surface-2: #e9e6d8;
-    --ink: #1c1e1a;
-    --ink-muted: #5c6156;
-    --ink-faint: #8b8f80;
-    --accent: #1f6f54;
-    --accent-soft: #dbe9e0;
-    --accent-2: #3e4c96;
-    --accent-2-soft: #e1e3f2;
-    --border: #d9d4c3;
-    --shadow: 0 1px 2px rgba(28,30,26,0.04), 0 8px 24px rgba(28,30,26,0.06);
-    --shadow-lift: 0 4px 10px rgba(28,30,26,0.08), 0 16px 32px rgba(28,30,26,0.10);
+    --bg: #fbfaf5;
+    --surface: #f3f1e6;
+    --surface-2: #ebe7d6;
+    --ink: #15170f;
+    --ink-muted: #52584a;
+    --ink-faint: #7c806f;
+    --accent: #0a7548;
+    --accent-soft: #d7f0e2;
+    --accent-2: #2f4fd6;
+    --accent-2-soft: #dce2fa;
+    --border: #d5cfba;
+    --shadow: 0 1px 2px rgba(21,23,15,0.05), 0 8px 24px rgba(21,23,15,0.07);
+    --shadow-lift: 0 4px 10px rgba(21,23,15,0.10), 0 16px 32px rgba(21,23,15,0.12);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       color-scheme: dark;
-      --bg: #14170f;
-      --surface: #1b1f16;
-      --surface-2: #23281c;
-      --ink: #ece9de;
-      --ink-muted: #a2a692;
-      --ink-faint: #767a68;
-      --accent: #55c69a;
-      --accent-soft: #1e3329;
-      --accent-2: #8b96e6;
-      --accent-2-soft: #262a4a;
-      --border: #33372a;
-      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
-      --shadow-lift: 0 6px 14px rgba(0,0,0,0.35), 0 20px 40px rgba(0,0,0,0.4);
+      --bg: #12150d;
+      --surface: #1a1f14;
+      --surface-2: #222819;
+      --ink: #f4f1e5;
+      --ink-muted: #b9bda9;
+      --ink-faint: #868c78;
+      --accent: #3de29e;
+      --accent-soft: #163a2b;
+      --accent-2: #8496ff;
+      --accent-2-soft: #262d52;
+      --border: #383f2a;
+      --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.4);
+      --shadow-lift: 0 6px 14px rgba(0,0,0,0.4), 0 20px 40px rgba(0,0,0,0.45);
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --bg: #14170f;
-    --surface: #1b1f16;
-    --surface-2: #23281c;
-    --ink: #ece9de;
-    --ink-muted: #a2a692;
-    --ink-faint: #767a68;
-    --accent: #55c69a;
-    --accent-soft: #1e3329;
-    --accent-2: #8b96e6;
-    --accent-2-soft: #262a4a;
-    --border: #33372a;
-    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
-    --shadow-lift: 0 6px 14px rgba(0,0,0,0.35), 0 20px 40px rgba(0,0,0,0.4);
+    --bg: #12150d;
+    --surface: #1a1f14;
+    --surface-2: #222819;
+    --ink: #f4f1e5;
+    --ink-muted: #b9bda9;
+    --ink-faint: #868c78;
+    --accent: #3de29e;
+    --accent-soft: #163a2b;
+    --accent-2: #8496ff;
+    --accent-2-soft: #262d52;
+    --border: #383f2a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 8px 24px rgba(0,0,0,0.4);
+    --shadow-lift: 0 6px 14px rgba(0,0,0,0.4), 0 20px 40px rgba(0,0,0,0.45);
   }
 
   * { box-sizing: border-box; }
@@ -261,8 +261,19 @@
     font-family: "IBM Plex Mono", monospace; font-size: 0.72rem;
     padding: 3px 8px; border-radius: 999px; background: var(--accent-2-soft); color: var(--accent-2);
   }
-  .project-link { font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; font-weight: 500; }
-  .project-link::after { content: " \2192"; display: inline-block; transition: transform 0.15s ease; }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    align-self: flex-start;
+    font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; font-weight: 700;
+    color: var(--accent-2);
+    background: var(--accent-2-soft);
+    border: 1.5px solid var(--accent-2);
+    border-radius: 999px;
+    padding: 6px 14px;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .project-link:hover { background: var(--accent-2); color: var(--bg); text-decoration: none; transform: translateY(-1px); }
+  .project-link::after { content: "\2192"; display: inline-block; transition: transform 0.15s ease; }
   .project-link:hover::after { transform: translateX(3px); }
 
   /* ---------- Experience ---------- */
