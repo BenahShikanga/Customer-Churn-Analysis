@@ -8,6 +8,9 @@ A collection of data analysis projects.
 
 ## Projects
 
+- [Norwegian Electricity Prices — Regional Divergence & Forecasting](norway-electricity-prices/) — Real Nord Pool
+  spot-price data across Norway's 5 zones: the north/south price divide quantified, zone correlation, rolling
+  volatility, KMeans market-regime detection, and a forecasting model with an honest baseline comparison.
 - [NAV Job Seekers — Trend Analysis & Forecasting](nav-jobseekers-forecast/) — Real NAV open data: trend/CAGR
   analysis, a supervised forecasting model with train/test evaluation, and KMeans clustering of occupations by
   labour-market trend shape.
